@@ -6,6 +6,7 @@ import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 import { getUsers } from "./actions/users.actions";
+import { getCards } from "./actions/card.actions";
 
 // dev tools
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -16,6 +17,7 @@ const store = createStore(
 );
 
 store.dispatch(getUsers());
+store.dispatch(getCards());
 
 ReactDOM.render(
   <Provider store={store}>
