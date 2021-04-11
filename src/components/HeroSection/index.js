@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UidContext } from "../AppContext";
 import { Button } from "../ButtonElements";
 import {
   HeroContainer,
@@ -13,6 +14,7 @@ import {
 } from "./HeroElements";
 
 const HeroSection = () => {
+  const uid = useContext(UidContext);
   const [hover, setHover] = useState(false);
 
   const onHover = () => {
@@ -30,17 +32,19 @@ const HeroSection = () => {
           Site d'entraide communautaire de joueurs de Dofus. Pour profiter à
           fond de la nouvelle édition de Temporis.
         </HeroP>
-        <HeroBtnWrapper>
-          <Button
-            to="/inscription"
-            onMouseEnter={onHover}
-            onMouseLeave={onHover}
-            primary="true"
-            dark="true"
-          >
-            Rejoins-nous {hover ? <ArrowForward /> : <ArrowRight />}
-          </Button>
-        </HeroBtnWrapper>
+        {!uid && (
+          <HeroBtnWrapper>
+            <Button
+              to="/inscription"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+              primary="true"
+              dark="true"
+            >
+              Rejoins-nous {hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
+          </HeroBtnWrapper>
+        )}
       </HeroContent>
     </HeroContainer>
   );

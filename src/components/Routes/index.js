@@ -12,6 +12,7 @@ import Equipments from "../../pages/Equipments";
 import Register from "../../pages/Register";
 import Login from "../../pages/Login";
 import Footer from "../Footer";
+import Profil from "../../pages/Profil";
 
 const index = () => {
   return (
@@ -23,6 +24,7 @@ const index = () => {
         <Route path="/equipements" exact component={Equipments} />
         <Route path="/inscription" exact component={Register} />
         <Route path="/connexion" exact component={Login} />
+        <Route path="/profil" exact component={Profil} />
         <Redirect to="/" />
       </Switch>
       <Footer />

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UidContext } from "../../AppContext";
 import {
   SidebarContainer,
   Icon,
@@ -8,9 +9,12 @@ import {
   SidebarLink,
   SideBtnWrap,
   SidebarRoute,
+  SidebarRouteLogout,
 } from "./SidebarElements";
 
-const Sidebar = ({ isOpen, toggle }) => {
+const Sidebar = ({ isOpen, toggle, logout }) => {
+  const uid = useContext(UidContext);
+
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -27,14 +31,28 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="/equipements" onClick={toggle}>
             Équipements
           </SidebarLink>
-          <SidebarLink to="/inscription" onClick={toggle}>
-            S'inscrire
-          </SidebarLink>
+          {!uid && (
+            <SidebarLink to="/inscription" onClick={toggle}>
+              S'inscrire
+            </SidebarLink>
+          )}
+          {uid && (
+            <SidebarLink to="/profil" onClick={toggle}>
+              Profil
+            </SidebarLink>
+          )}
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/connexion" onClick={toggle}>
-            Se connecter
-          </SidebarRoute>
+          {!uid && (
+            <SidebarRoute to="/connexion" onClick={toggle}>
+              Connexion
+            </SidebarRoute>
+          )}
+          {uid && (
+            <SidebarRouteLogout to="/" onClick={logout}>
+              Déconnexion
+            </SidebarRouteLogout>
+          )}
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>
