@@ -86,11 +86,12 @@ export const FormInput = styled.input`
   border-radius: 4px;
 `;
 
-export const FormButton = styled.button`
+export const FormButton = styled.input`
   background: #01bf71;
   padding: 16px 0;
   border: none;
   border-radius: 4px;
+  margin-top: 4px;
   color: #fff;
   font-size: 20px;
   cursor: pointer;
@@ -112,4 +113,12 @@ export const TextLink = styled(Link)`
     color: #01bf71;
     transition: 200ms ease-in;
   }
+`;
+
+export const Error = styled.div`
+  text-align: center;
+  color: #c70039;
+  font-size: 14px;
+  margin-top: -14px;
+  margin-bottom: 14px;
 `;

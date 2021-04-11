@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UidContext } from "../AppContext";
 import {
   Box,
   Container,
@@ -10,6 +11,8 @@ import {
 } from "./FooterElements";
 
 const Footer = () => {
+  const uid = useContext(UidContext);
+
   return (
     <Box>
       <BoxH1>Tempo V : Site d'entraide communautaire de joueurs de Dofus</BoxH1>
@@ -24,6 +27,7 @@ const Footer = () => {
             <FooterLink href="/">Accueil</FooterLink>
             <FooterLink href="/cartes">Cartes</FooterLink>
             <FooterLink href="/equipements">Équipements</FooterLink>
+            {uid && <FooterLink href="/profil">Profil</FooterLink>}
           </Column>
           <Column>
             <Heading>Contact</Heading>

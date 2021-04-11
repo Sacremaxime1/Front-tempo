@@ -87,3 +87,23 @@ export const SidebarRoute = styled(Link)`
     color: #010606;
   }
 `;
+
+export const SidebarRouteLogout = styled(Link)`
+  border-radius: 50px;
+  background: #c70039;
+  white-space: nowrap;
+  padding: 16px 64px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #c70039;
+  }
+`;

@@ -113,3 +113,23 @@ export const NavBtnLink = styled(Link)`
     color: #010606;
   }
 `;
+
+export const NavBtnLinkLogout = styled(Link)`
+  border-radius: 50px;
+  background: #c70039;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #c70039;
+  }
+`;
