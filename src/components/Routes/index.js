@@ -7,7 +7,7 @@ import Equipments from "../../pages/Equipments";
 import Register from "../../pages/Register";
 import Login from "../../pages/Login";
 import Footer from "../Footer";
-import Profil from "../../pages/Profil";
+import Profile from "../../pages/Profile";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 
@@ -31,7 +31,7 @@ const index = () => {
           exact
           component={Login}
         />
-        <PrivateRoute path="/profil" exact component={Profil} />
+        <PrivateRoute path="/profil" exact component={Profile} />
         <Redirect to="/" />
       </Switch>
       <Footer />

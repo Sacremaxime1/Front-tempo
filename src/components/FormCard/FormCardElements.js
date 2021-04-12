@@ -50,7 +50,12 @@ export const Titre = styled.div`
   grid-area: Titre;
   font-size: 30px;
   text-align: center;
-  margin: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #fff;
+  background: #0d0d0d;
 `;
 
 export const FormUpload = styled.div`
@@ -157,7 +162,8 @@ export const FormTextarea = styled.textarea`
 export const FormButton = styled.input`
   background: #01bf71;
   padding: 10px 5px;
-  margin-left: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -173,17 +179,7 @@ export const FormButtonGroup = styled.div`
 
 export const Button = styled.button`
   background: #939393;
-  margin: 0px 10px;
-  padding: 10px 5px;
-  border: none;
-  border-radius: 4px;
-  font-size: 20px;
-  cursor: pointer;
-`;
-
-export const ButtonAdd = styled.button`
-  background: #01bf71;
-  margin: 0px 10px;
+  margin-left: 30px;
   padding: 10px 5px;
   border: none;
   border-radius: 4px;

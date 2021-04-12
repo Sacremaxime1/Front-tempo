@@ -47,6 +47,9 @@ const FormCard = () => {
     setMessage("");
     setFile("");
     setCardPicture("");
+    setIsUploaded(false);
+    const typefile = document.querySelector(".type.file");
+    typefile.innerHTML = "&nbsp;";
   };
 
   const handleCard = async (e) => {
