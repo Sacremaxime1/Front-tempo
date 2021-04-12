@@ -26,14 +26,12 @@ export const FormWrap = styled.div`
 
 export const FormContent = styled.div`
   background: #fff;
-  max-width: 800px;
   height: auto;
-  width: 100%;
   z-index: 1;
   display: grid;
+  min-width: 350px;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: 1fr auto;
   grid-template-areas: "image_area password";
   margin: 0 auto;
   padding: 40px;
@@ -43,13 +41,10 @@ export const FormContent = styled.div`
   @media screen and (max-width: 840px) {
     //padding: 32px 32px;
     max-width: 500px;
-    grid-template-rows: 1fr 1fr;
+    min-height: 460px;
+    grid-template-rows: 1fr auto;
     grid-template-columns: 1fr;
     grid-template-areas: "image_area" "password";
-  }
-
-  @media screen and (max-width: 550px) {
-    max-width: 400px;
   }
 `;
 
@@ -58,6 +53,19 @@ export const FormImage = styled.form`
   display: grid;
   justify-content: center;
   align-items: center;
+`;
+
+export const ArrowBtn = styled.button`
+  text-align: center;
+  width: 25px;
+  padding: 0 auto;
+  font-weight: 700;
+  font-size: 18px;
+  transform: translate(200px);
+  background: #01bf71;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
 `;
 
 export const Logo = styled.img`
@@ -99,11 +107,22 @@ export const Pseudo = styled.div`
   font-weight: 700;
 `;
 
+export const Email = styled.div`
+  margin: 0 auto;
+  font-size: 20px;
+`;
+
 export const FormPassword = styled.form`
+  margin-left: 60px;
   grid-area: password;
   display: grid;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 840px) {
+    margin-left: 0;
+    margin-top: 60px;
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -135,4 +154,15 @@ export const Error = styled.div`
   font-size: 14px;
   margin-top: -14px;
   margin-bottom: 14px;
+`;
+
+export const FormPasswordEmpty = styled.div`
+  grid-area: password;
+  height: 380px;
+  width: 0;
+
+  @media screen and (max-width: 840px) {
+    height: 0;
+    width: 252px;
+  }
 `;
