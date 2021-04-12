@@ -17,9 +17,13 @@ import {
   FormInput,
   FormButton,
   Error,
+  Email,
+  ArrowBtn,
+  FormPasswordEmpty,
 } from "./UserProfileElements";
 
 const UserProfile = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
   const [profilePicture, setProfilePicture] = useState(null);
   const [file, setFile] = useState();
@@ -109,12 +113,18 @@ const UserProfile = () => {
     }
   };
 
+  const handleClose = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <Container img={"img/profile.jpg"}>
         <FormWrap>
           <FormContent>
             <FormImage action="" onSubmit={handlePicture}>
+              {isOpen && <ArrowBtn onClick={handleClose}>&lt;</ArrowBtn>}
+              {!isOpen && <ArrowBtn onClick={handleClose}>&gt;</ArrowBtn>}
               <LabelImage htmlFor="file">
                 <Logo
                   src={isUploaded ? profilePicture : userImage}
@@ -133,41 +143,46 @@ const UserProfile = () => {
                 <SubmitImage type="submit" value="Changer l'image" />
               )}
               <Pseudo>{userData.pseudo}</Pseudo>
+              <Email>{userData.email}</Email>
             </FormImage>
-            <FormPassword action="" onSubmit={handlePassword}>
-              <FormLabel htmlFor="for">Ancien mot de passe</FormLabel>
-              <FormInput
-                type="password"
-                required
-                name="oldPassword"
-                id="oldPassword"
-                onChange={(e) => setOldPassword(e.target.value)}
-                value={oldPassword}
-              />
-              <Error className="oldpassword error" />
-              <FormLabel htmlFor="for">Nouveau mot de passe</FormLabel>
-              <FormInput
-                type="password"
-                required
-                name="newPassword"
-                id="newPassword"
-                onChange={(e) => setNewPassword(e.target.value)}
-                value={newPassword}
-              />
-              <FormLabel htmlFor="for">
-                Validation du nouveau mot de passe
-              </FormLabel>
-              <FormInput
-                type="password"
-                required
-                name="newPasswordConf"
-                id="newPasswordConf"
-                onChange={(e) => setNewPasswordConf(e.target.value)}
-                value={newPasswordConf}
-              />
-              <Error className="password error" />
-              <FormButton type="submit" value="Changer le mot de passe" />
-            </FormPassword>
+            {isOpen ? (
+              <FormPassword action="" onSubmit={handlePassword}>
+                <FormLabel htmlFor="for">Ancien mot de passe</FormLabel>
+                <FormInput
+                  type="password"
+                  required
+                  name="oldPassword"
+                  id="oldPassword"
+                  onChange={(e) => setOldPassword(e.target.value)}
+                  value={oldPassword}
+                />
+                <Error className="oldpassword error" />
+                <FormLabel htmlFor="for">Nouveau mot de passe</FormLabel>
+                <FormInput
+                  type="password"
+                  required
+                  name="newPassword"
+                  id="newPassword"
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  value={newPassword}
+                />
+                <FormLabel htmlFor="for">
+                  Validation du nouveau mot de passe
+                </FormLabel>
+                <FormInput
+                  type="password"
+                  required
+                  name="newPasswordConf"
+                  id="newPasswordConf"
+                  onChange={(e) => setNewPasswordConf(e.target.value)}
+                  value={newPasswordConf}
+                />
+                <Error className="password error" />
+                <FormButton type="submit" value="Changer le mot de passe" />
+              </FormPassword>
+            ) : (
+              <FormPasswordEmpty />
+            )}
           </FormContent>
         </FormWrap>
       </Container>

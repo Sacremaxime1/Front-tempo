@@ -7,9 +7,9 @@ import { FormInput } from "../components/FormCard/FormCardElements";
 const Cards = () => {
   const cards = useSelector((state) => state.cardReducer);
   const [searchTerm, setSearchTerm] = useState("");
-  const updateSearchTerm = useCallback((event) =>
-    setSearchTerm(event.target.value)
-  );
+  const updateSearchTerm = useCallback((event) => {
+    setSearchTerm(event.target.value);
+  }, []);
 
   return (
     <>
