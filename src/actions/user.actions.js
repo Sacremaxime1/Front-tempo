@@ -36,18 +36,6 @@ export const uploadPicture = (data, id) => {
   };
 };
 
-export const updatePassword = (userId, email, password, newPassword) => {
-  return axios({
-    method: "put",
-    url: `${process.env.REACT_APP_API_URL}api/user/` + userId,
-    data: { email, password, newPassword },
-  })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => console.log(err));
-};
-
 export const deleteUser = (userId) => {
   return axios({
     method: "delete",
