@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import CardsList from "../components/CardsList";
-import FormCard from "../components/FormCard";
 import { FormInput } from "../components/FormCard/FormCardElements";
 
 const Cards = () => {
@@ -13,12 +12,9 @@ const Cards = () => {
 
   return (
     <>
-      <FormCard />
       <FormInput type="text" onChange={updateSearchTerm}></FormInput>
       <CardsList
-        cards={cards.filter((card) =>
-          card.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )}
+        cards={cards.filter((card) => card.name.includes(searchTerm))}
       ></CardsList>
     </>
   );

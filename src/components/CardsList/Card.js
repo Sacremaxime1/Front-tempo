@@ -9,10 +9,7 @@ const Card = (props) => {
     if (pathPicture) {
       return axios
         .get(
-          `${process.env.REACT_APP_API_URL}static${pathPicture.replace(
-            ".",
-            ""
-          )}`,
+          `${process.env.REACT_APP_API_URL}static/uploads/cards/${pathPicture}.png`,
           { responseType: "arraybuffer" }
         )
         .then((res) => {
@@ -30,7 +27,7 @@ const Card = (props) => {
     }
   };
 
-  getPicture(props.card.picture);
+  getPicture(props.card.image);
 
   return (
     <CardContainer>

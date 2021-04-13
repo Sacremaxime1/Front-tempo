@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const GET_CARDS = "GET_CARDS";
-export const ADD_CARD = "ADD_CARD";
 export const UPVOTE_CARD = "UPVOTE_CARD";
 export const UNUPVOTE_CARD = "UNUPVOTE_CARD";
 export const DOWNVOTE_CARD = "DOWNVOTE_CARD";
@@ -18,20 +17,6 @@ export const getCards = () => {
         dispatch({ type: GET_CARDS, payload: res.data });
       })
       .catch((err) => console.log(err));
-  };
-};
-
-export const addCards = (data) => {
-  return (dispatch) => {
-    return axios
-      .post(`${process.env.REACT_APP_API_URL}api/card/`, data)
-      .then((res) => {
-        if (res.data.errors) {
-          dispatch({ type: GET_CARD_ERRORS, payload: res.data.errors });
-        } else {
-          dispatch({ type: GET_CARD_ERRORS, payload: "" });
-        }
-      });
   };
 };
 
